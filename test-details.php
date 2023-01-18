@@ -47,7 +47,8 @@ else
 //rename the image file
 $newreportfile=md5($reportfile).time().$extension;
 // Code for move image into directory
-move_uploaded_file($_FILES["report"]["tmp_name"],"reportfiles/".$newreportfile);
+$report = $_FILES['report']['tmp_name'];
+move_uploaded_file($report,"reportfiles/".$newreportfile);
 $query="insert into tblreporttracking(OrderNumber,Status,Remark,RemarkBy) values('?','?','?','?')";
 $stmt=mysqli_stmt_init($con);
 if(!mysqli_stmt_prepare($stmt,$query)){

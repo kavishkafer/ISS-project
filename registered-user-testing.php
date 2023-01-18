@@ -77,7 +77,11 @@ echo "<script>window.location.href='registered-user-testing.php'</script>";
   </form>
 </div>
 <?php if(isset($_POST['search'])){ ?><br>
-<h3 style="color:red">Resulst against mobile number "<?php echo $_POST['regmobilenumber'];?>"</h3>
+<h3 style="color:red">Resulst against mobile number "<?php $regmobilenumber = $_POST['regmobilenumber'];
+  $regmobilenumber = strip_tags($regmobilenumber);
+  $regmobilenumber = preg_replace("0-9", "",$regmobilenumber);
+  $regmobilenumber = trim($regmobilenumber);
+  echo $regmobilenumber;?>"</h3>
 <br>
     <?php
     $mnumber=intval($_POST['regmobilenumber']);

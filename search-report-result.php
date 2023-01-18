@@ -39,6 +39,9 @@ if (strlen($_SESSION['aid']==0)) {
         <main>
         <?php
 $searchdata=$_POST['serachdata'];
+$searchdata = strip_tags($searchdata);
+$searchdata = preg_replace("/[^a-zA-Z0-9 ]/", "",$searchdata);
+$searchdata = trim($searchdata);
 
 ?>
             <h1 class="dash-title">Search Result Againt '<?php echo $searchdata;?>' </h1>

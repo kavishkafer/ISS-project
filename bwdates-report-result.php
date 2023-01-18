@@ -41,7 +41,30 @@ if (strlen($_SESSION['aid']==0)) {
         <main>
         <?php
 $fdate=$_POST['fromdate'];
+// Create a DateTime object from the user input
+$fdate = DateTime::createFromFormat('Y-m-d', $fdate);
+
+//Check if the date is valid
+if ($fdate === false) {
+    // The date is not valid
+    echo "Invalid date format. Please enter the date in YYYY-MM-DD format.";
+} else {
+    // The date is valid, you can use it as needed
+    $fdate = $fdate->format('Y-m-d');
+}
+
 $tdate=$_POST['todate'];
+// Create a DateTime object from the user input
+$tdate = DateTime::createFromFormat('Y-m-d', $tdate);
+
+//Check if the date is valid
+if ($tdate === false) {
+    // The date is not valid
+    echo "Invalid date format. Please enter the date in YYYY-MM-DD format.";
+} else {
+    // The date is valid, you can use it as needed
+    $tdate = $tdate->format('Y-m-d');
+}
 
 ?>
             <h1 class="dash-title">Dates Report Result From <?php echo $fdate;?> to <?php echo $tdate;?> </h1>

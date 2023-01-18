@@ -36,6 +36,9 @@ error_reporting(0);
         <main>
         <?php
 $searchdata=$_POST['searchdata'];
+$searchdata = strip_tags($searchdata);
+$searchdata = preg_replace("/[^a-zA-Z0-9 ]/", "",$searchdata);
+$searchdata = trim($searchdata);
 
 ?>
             <h1 class="dash-title">Search Result Against '<?php echo $searchdata;?>' </h1>
